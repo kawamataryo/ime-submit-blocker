@@ -2,7 +2,7 @@
   "name": "ime-submit-blocker",
   "displayName": "Ime submit blocker",
   "version": "0.0.1",
-  "description": "日本語入力変換確定時のエンターキーでのフォーム入力を防ぐ拡張機能",
+  "description": "IMEでの日本語変換確定時のEnterでFormが送信されることを防ぐ拡張機能。",
   "author": "kawamataryo",
   "scripts": {
     "dev": "plasmo dev",
@@ -10,18 +10,25 @@
     "package": "plasmo package"
   },
   "dependencies": {
+    "@plasmohq/messaging": "^0.1.7",
+    "@plasmohq/storage": "^1.4.0",
+    "daisyui": "^2.51.5",
     "plasmo": "0.67.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@plasmohq/prettier-plugin-sort-imports": "3.6.3",
     "@types/chrome": "0.0.228",
     "@types/node": "18.15.11",
     "@types/react": "18.0.33",
     "@types/react-dom": "18.0.11",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
     "prettier": "2.8.7",
-    "typescript": "5.0.3",
-    "@plasmohq/prettier-plugin-sort-imports": "3.6.3"
+    "tailwindcss": "^3.3.1",
+    "typescript": "5.0.3"
   },
   "manifest": {
     "host_permissions": [
@@ -30,5 +37,8 @@
     "permissions": [
       "tabs"
     ]
+  },
+  "volta": {
+    "node": "16.20.0"
   }
 }
