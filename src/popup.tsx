@@ -8,15 +8,16 @@ import { Storage } from "@plasmohq/storage"
 import ShieldIcon from "~components/shieldIcon"
 import {
   BLACK_LIST_STORAGE_KEY,
-  DEFAULT_BEHAVIOR_STORAGE_KEY
+  TOGGLE_IME_SUBMIT_BLOCK_MESSAGE_NAME
 } from "~lib/constants"
 
 function IndexPopup() {
   const toggleIMESubmitBlock = async (isBlocked: boolean) => {
     await sendToContentScript({
-      name: "toggle-ime-submit-block",
+      name: TOGGLE_IME_SUBMIT_BLOCK_MESSAGE_NAME,
       body: {
-        isBlocked
+        isBlocked,
+        shouldWait: false
       }
     })
   }
@@ -38,17 +39,16 @@ function IndexPopup() {
     const blackList = (await storage.get<string>(BLACK_LIST_STORAGE_KEY)) || ""
     chrome.tabs.query({ active: true, currentWindow: true }, async (tabs) => {
       const currentUrl = new URL(tabs[0].url)
-      const currentUrlWithoutParams = `${currentUrl.origin}${currentUrl.pathname}`
       if (blackList) {
         await storage.set(
           BLACK_LIST_STORAGE_KEY,
-          `${blackList}\n${currentUrlWithoutParams}`
+          `${blackList}\n${currentUrl.origin}`
         )
       } else {
-        await storage.set(BLACK_LIST_STORAGE_KEY, currentUrlWithoutParams)
+        await storage.set(BLACK_LIST_STORAGE_KEY, currentUrl.origin)
       }
       await toggleIMESubmitBlock(false)
-      showNotification(`Added ${currentUrlWithoutParams} to Black List`)
+      showNotification(`Added ${currentUrl.origin} to Black List`)
     })
   }
 
