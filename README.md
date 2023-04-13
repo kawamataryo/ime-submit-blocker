@@ -9,7 +9,7 @@
 
 IMEでの入力変換確定時のEnterで誤送信されることを防ぐブラウザ拡張機能。
 
-https://user-images.githubusercontent.com/11070996/231619625-36f3d856-762b-4d06-b925-5a3b3dac0682.mp4
+https://user-images.githubusercontent.com/11070996/231881786-fc7711bf-771b-4e4b-a2fa-ffa14e23bcee.mp4
 
 ## 🌐 Install
 
