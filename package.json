@@ -2,7 +2,7 @@
   "name": "ime-submit-blocker",
   "displayName": "IME Submit Blocker",
   "version": "0.1.0",
-  "description": "IMEでの日本語変換確定時のEnterでFormが送信されることを防ぐ拡張機能。",
+  "description": "IMEでの文字変換確定時のEnterでフォームが送信されることを防ぐ拡張機能",
   "author": "kawamataryo",
   "scripts": {
     "dev": "plasmo dev",
