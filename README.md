@@ -18,7 +18,7 @@ https://user-images.githubusercontent.com/11070996/231619625-36f3d856-762b-4d06-
 - Firefox
 
 ## ✨ Feature
-- Blockerの自動適応・手動適応
+- 全サイトへの自動適応・手動適応
 - 除外サイトの設定
 - SPAへの対応
 
