@@ -1,4 +1,4 @@
-import { BLACK_LIST_STORAGE_KEY, DEFAULT_BEHAVIOR_STORAGE_KEY, WAIT_TIME_STORAGE_KEY } from "./constants"
+import { BLACK_LIST_STORAGE_KEY, DEFAULT_BEHAVIOR_STORAGE_KEY, DEFAULT_WAIT_TIME, WAIT_TIME_STORAGE_KEY } from "./constants"
 import { Storage } from "@plasmohq/storage"
 
 const storage = new Storage()
@@ -30,8 +30,8 @@ export const isBlackListed = async () => {
 export const getWaitTime = async () => {
   const waitTime = await storage.get<number>(WAIT_TIME_STORAGE_KEY)
   if (waitTime === undefined) {
-    storage.set(WAIT_TIME_STORAGE_KEY, 2500)
-    return 2500
+    storage.set(WAIT_TIME_STORAGE_KEY, DEFAULT_WAIT_TIME)
+    return DEFAULT_WAIT_TIME
   }
   return waitTime
 }

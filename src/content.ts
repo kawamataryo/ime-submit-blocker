@@ -28,7 +28,10 @@ const initializeBlocker = async () => {
     log("[IMESubmitBlocker] Current url is registered black list 📝")
     return
   }
+  // 即時実行
+  enableBlocker()
   await wait()
+  // wait後に再実行（SPA対応）
   enableBlocker()
 }
 
