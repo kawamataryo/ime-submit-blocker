@@ -17,7 +17,13 @@ export const preventEnterOnIME = (
   dom.addEventListener(
     "keydown",
     (e: KeyboardEvent) => {
-      if (!(e.target instanceof HTMLTextAreaElement || e.target instanceof HTMLInputElement)) return
+      // textarea, input, role="textbox" 以外の場合は除外
+      if (!(
+        e.target instanceof HTMLTextAreaElement ||
+        e.target instanceof HTMLInputElement ||
+        (e.target as Element).getAttribute('role') === 'textbox'
+        )) return
+
       if (e.key === "Enter") {
         if (e.isComposing) {
           e.preventDefault()
